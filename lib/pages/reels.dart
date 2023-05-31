@@ -35,7 +35,7 @@ class Userreels extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Color(Random().nextInt(0xffffff)).withAlpha(0xff),
                       border: Border.all(width: 1, style: BorderStyle.solid)),
-                  height: 610,
+                  height: 611,
                   width: double.infinity,
                 ),
                 Column(
