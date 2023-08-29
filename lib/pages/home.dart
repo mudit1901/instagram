@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/utils/post.dart';
 import 'package:instagram/utils/stories.dart';
+import 'package:shimmer/shimmer.dart';
 
 class UserHome extends StatelessWidget {
   const UserHome({super.key});
@@ -37,59 +38,67 @@ class UserHome extends StatelessWidget {
           ],
         ),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                  Stories(),
-                ],
+        child: Shimmer(
+          direction: ShimmerDirection.ltr,
+          gradient: LinearGradient(colors: [
+            Colors.grey.shade500,
+            Colors.grey.shade300,
+            Colors.grey.shade500
+          ]),
+          child: const Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                    Stories(),
+                  ],
+                ),
               ),
-            ),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-            Posts(),
-          ],
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+              Posts(),
+            ],
+          ),
         ),
       ),
     );

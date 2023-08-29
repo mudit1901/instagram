@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/utils/stories.dart';
 import 'package:instagram/utils/tab1.dart';
+import 'package:shimmer/shimmer.dart';
 
 class UserAccount extends StatelessWidget {
   const UserAccount({super.key});
@@ -50,11 +51,19 @@ class UserAccount extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      height: 100,
-                      width: 100,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.grey),
+                    Shimmer(
+                      direction: ShimmerDirection.ltr,
+                      gradient: LinearGradient(colors: [
+                        Colors.grey.shade500,
+                        Colors.grey.shade300,
+                        Colors.grey.shade500
+                      ]),
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.grey),
+                      ),
                     ),
                     const Column(
                       children: [
@@ -128,65 +137,74 @@ class UserAccount extends StatelessWidget {
                   Expanded(
                     flex: 0,
                     child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Center(
-                          child: Text(
-                        'Edit Profile',
-                        style: TextStyle(fontSize: 16),
-                      )),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5)),
+                      child: const Center(
+                          child: Text(
+                        'Edit Profile',
+                        style: TextStyle(fontSize: 16),
+                      )),
                     ),
                   ),
                   Expanded(
                     flex: 0,
                     child: Container(
                       padding: const EdgeInsets.all(8),
-                      child: Center(
-                          child: Text(
-                        'Share Profile',
-                        style: TextStyle(fontSize: 16),
-                      )),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5)),
+                      child: const Center(
+                          child: Text(
+                        'Share Profile',
+                        style: TextStyle(fontSize: 16),
+                      )),
                     ),
                   ),
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 10),
-                child: Row(
-                  children: [
-                    const Stories(),
-                    const Stories(),
-                    const Stories(),
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 9.0, left: 10),
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            child: Center(
-                              child: Icon(Icons.add),
+                child: Shimmer(
+                  direction: ShimmerDirection.ltr,
+                  gradient: LinearGradient(colors: [
+                    Colors.grey.shade500,
+                    Colors.grey.shade300,
+                    Colors.grey.shade500
+                  ]),
+                  child: Row(
+                    children: [
+                      const Stories(),
+                      const Stories(),
+                      const Stories(),
+                      Column(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(bottom: 9.0, left: 10),
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.shade200,
+                                  shape: BoxShape.circle),
+                              child: const Center(
+                                child: Icon(Icons.add),
+                              ),
                             ),
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade200,
-                                shape: BoxShape.circle),
                           ),
-                        ),
-                        const Padding(
-                          padding:
-                              EdgeInsets.only(left: 5, bottom: 8.0, top: 2.0),
-                          child: Text('Add Story'),
-                        )
-                      ],
-                    )
-                  ],
+                          const Padding(
+                            padding:
+                                EdgeInsets.only(left: 5, bottom: 8.0, top: 2.0),
+                            child: Text('Add Story'),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               const TabBar(tabs: [

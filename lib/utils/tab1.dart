@@ -8,7 +8,7 @@ class Tab1 extends StatelessWidget {
     return GridView.builder(
       itemCount: 15,
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(1.5),
